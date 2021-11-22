@@ -13,7 +13,9 @@ module.export("osu_to_lua", function(osu_file_contents) {
 			rtv_lua += (str)
 		}
 	}
-
+	
+	append_to_output(osu_file_contents);
+	
 	var beatmap = parser.parseContent(osu_file_contents)
 
 	function track_time_hash(track,time) {
