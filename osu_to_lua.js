@@ -48,9 +48,10 @@ module.export("osu_to_lua", function(osu_file_contents) {
 
 	var _tracks_next_open = {
 		1 : -1,
-		2: -1,
-		3: -1,
-		4: -1
+		2 : -1,
+		3 : -1,
+		4 : -1,
+		5 : -1
 	}
 	var _i_to_removes = {}
 
