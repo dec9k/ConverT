@@ -26,10 +26,12 @@ module.export("osu_to_lua", function(osu_file_contents) {
 			track_number = 1;
 		} else if (hitobj_x < 200) {
 			track_number = 2;
-		} else if (hitobj_x < 360) {
+		} else if (hitobj_x < 300) {
 			track_number = 3;
-		} else {
+		} else if (hitobj_x < 400) {
 			track_number = 4;
+		} else {
+			track_number = 5;
 		}
 		return track_number;
 	}
