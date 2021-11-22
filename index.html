@@ -25,14 +25,18 @@ module.require = function(name) {
 <script src="osuparser.js"></script>
 <script src="format.js"></script>
 <script src="osu_to_lua.js"></script>
-
+<script src="osu_to_luaT.js"></script>
 <script src="jquery.js"></script>
 <script>
 $(function(){
   $("#submit").click(function(){
     $("#out").val("converting...")
 			var osu_file_str = $("#in").val()
-			$("#out").val(module.require("osu_to_lua")(osu_file_str))
+			var song_info = module.require("song_info")(osu_file_str)
+			var osu_file_output = module.require("osu_to_luaT")(osu_file_str)
+			$("#title").val(song_info.Title)
+			$("#artist").val(song_info.Artist)
+			$("#out").val(osu_file_output)
   })
 })
 </script>
@@ -46,8 +50,13 @@ $(function(){
 <br/>
 <br/>
 <br/>
+<p><b>Title of the Song</b></p>
+<textarea id="title" style="width:1000px;height:20px" readonly></textarea>
+<p><b>Artist of the Album</b></p>
+<textarea id="artist" style="width:1000px;height:20px" readonly></textarea>
+<p><b>Beatmap </b>(Ctrl + A) To select all</p>
 <textarea id="out" style="width:1000px;height:200px" readonly>
-  output (paste this into the "SongMap" script in the workspace)
+  output (paste this into the "Beatmap" portion)
 </textarea>
 </body>
 </html>

@@ -1,7 +1,17 @@
 var parser = module.require("osuparser");
 var format = module.require('format');
 
-module.export("osu_to_lua", function(osu_file_contents) {
+module.export("song_info", function(osu_file_contents) {
+	var beatmap = parser.parseContent(osu_file_contents)
+	console.log(beatmap.Title)
+	return {
+		Title: String(beatmap.Title), 
+		Artist: String(beatmap.Artist), 
+		Tags: ""+beatmap.Tags+""
+		};
+})
+
+module.export("osu_to_luaT", function(osu_file_contents) {
 	var rtv_lua = ""
 	var append_to_output = function(str, newline) {
 		if (newline === undefined || newline === true)
