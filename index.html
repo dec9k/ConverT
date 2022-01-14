@@ -33,7 +33,7 @@ $(function(){
     $("#out").val("converting...")
 			var osu_file_str = $("#in").val()
 			var song_info = module.require("song_info")(osu_file_str)
-			var osu_file_output = module.require("osu_to_luaT")(osu_file_str)
+			var osu_file_output = module.require("osu_to_lua")(osu_file_str)
 			$("#title").val(song_info.Title)
 			$("#artist").val(song_info.Artist)
 			$("#out").val(osu_file_output)
